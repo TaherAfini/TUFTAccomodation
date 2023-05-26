@@ -18,15 +18,15 @@
             $("#submit").remove()
             $("#id").remove()
 
-            const url = "https://script.google.com/macros/s/AKfycbxKTA6okcupOCduXTdQlY6i273PUyKuJ4MwdnMCWR1l-Wu7bHlB4vQEZeqxcBk3GyeA/exec?id="+id
+            const url = "https://script.google.com/macros/s/AKfycbxKTA6okcupOCduXTdQlY6i273PUyKuJ4MwdnMCWR1l-Wu7bHlB4vQEZeqxcBk3GyeA/exec?callback=put&id="+id
             const data = await fetch(URL, {
-                method: 'POST',
+                method: 'GET',
                 headers: {'Content-Type': 'text/plain'},
             })
 
-
-            $("body").append("<p>" + JSON.stringify(data) + "</p>")
-
+            const put = (data) => {
+                $("body").append("<p>" + JSON.stringify(data) + "</p>")
+            }
             
         })
     </script>
