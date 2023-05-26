@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="id" id="id">
+    <button type="submit" id="submit">Submit</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        $("#submit").click(async() => {
+            const id = $("#id").val()
+
+            $("#submit").remove()
+            $("#id").remove()
+
+            const url = "https://script.google.com/macros/s/AKfycbxKTA6okcupOCduXTdQlY6i273PUyKuJ4MwdnMCWR1l-Wu7bHlB4vQEZeqxcBk3GyeA/exec?id="+id
+            const data = await fetch(URL, {
+                method: 'POST',
+                headers: {'Content-Type': 'text/plain'},
+            })
+
+
+            $("body").append("<p>" + data + "</p>")
+
+            
+        })
+    </script>
+</body>
+</html>
